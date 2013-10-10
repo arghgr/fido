@@ -5,16 +5,16 @@
         <thead>
         <tr>
           <th>Recent Posts
-            {{#linkTo "posts.new"}}Add Post{{/linkTo}}
+            {{#link-to "posts.new"}}Add Post{{/link-to}}
           </th>
         </tr>
         </thead>
         {{#each post in filteredContent}}
           <tr>
             <td>
-              {{#linkTo post}}{{post.title}}
+              {{#link-to 'posts.post' post}}{{post.title}}
               <small class="muted">by {{post.author}}</small>
-              {{/linkTo}}
+              {{/link-to}}
             </td>
           </tr>
         {{/each}}

@@ -40,7 +40,7 @@ Fido::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
@@ -56,4 +56,13 @@ Fido::Application.routes.draw do
   #   end
 
   root :to => 'static#index'
+
+  namespace :api do
+    namespace :v1 do
+      resources :posts
+      resources :users
+    end
+  end
+
+
 end
