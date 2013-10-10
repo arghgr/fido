@@ -1,0 +1,8 @@
+{{#if isEditing}}
+{{partial "post/edit"}}
+<button {{action "doneEditing"}} class="btn">done</button>
+{{else}}
+<button {{action "edit"}} class="btn">edit</button>
+<button {{action "delete"}} class="btn">delete</button>
+{{/if}}
+{{partial "post/view"}}

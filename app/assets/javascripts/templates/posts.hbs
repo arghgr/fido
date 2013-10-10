@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Recent Posts
+            {{#linkTo "posts.new"}}Add Post{{/linkTo}}
+          </th>
+        </tr>
+        </thead>
+        {{#each post in filteredContent}}
+          <tr>
+            <td>
+              {{#linkTo post}}{{post.title}}
+              <small class="muted">by {{post.author}}</small>
+              {{/linkTo}}
+            </td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+    <div class="span9">
+      {{outlet}}
+    </div>
+  </div>
+</div>
