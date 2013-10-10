@@ -5,7 +5,7 @@ Fido.PostsPostController = Ember.ObjectController.extend
       @set "isEditing", true
 
     delete: ->
-      if window.confirm "Are you sure you want to delete this post?"
+      if window.confirm "are you sure you want to delete this post?"
         @get("content").deleteRecord()
         @get("content").save().then =>
           @transitionToRoute "posts"

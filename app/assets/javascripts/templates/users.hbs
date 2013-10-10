@@ -4,15 +4,15 @@
       <table class="table">
         <thead>
         <tr>
-          <th>recent posts</th>
+          <th>users</th>
         </tr>
         </thead>
-        {{#each post in filteredContent}}
+        {{#each user in filteredContent}}
           <tr>
             <td>
-              {{#link-to "posts.post" post}}{{post.title}}
-              <small class="muted">by {{post.author}}</small>
-              {{/link-to}}
+              {{user.id}}
+              {{#link-to "users.user" user}}{{user.name}}{{/link-to}}
+              <small class="muted"> password: {{user.password}}</small>
             </td>
           </tr>
         {{/each}}
@@ -22,7 +22,7 @@
       </table>
     </div>
     <div>
-      {{#link-to "posts.new"}}add{{/link-to}}
+      {{#link-to "users.new"}}add{{/link-to}}
     </div>
     <div class="span9">
       {{outlet}}

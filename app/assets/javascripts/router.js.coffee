@@ -5,3 +5,6 @@ Fido.Router.map ()->
   @resource "posts", ->
     @route "post", path: ":post_id"
     @route "new"
+  @resource "users", ->
+  	@route "user", path: ":user_id"
+  	@route "new"
