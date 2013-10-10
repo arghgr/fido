@@ -5,7 +5,3 @@ Fido.Router.map ()->
   @resource "posts", ->
     @route "post", path: ":post_id"
     @route "new"
-
-Fido.IndexRoute = Ember.Route.extend
-  redirect: ->
-    @transitionTo "posts"

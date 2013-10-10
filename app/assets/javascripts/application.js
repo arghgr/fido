@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require showdown
+//= require moment
 //= require handlebars
 //= require ember
 //= require ember-data
