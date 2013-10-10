@@ -1,8 +1,8 @@
 # http://emberjs.com/guides/models/defining-a-store/
 
-Fido.Store = DS.Store.extend
-  revision: 12
-  adapter: "DS.RESTAdapter" # "DS.FixtureAdapter"
+Fido.Store = DS.Store.extend()
 
-DS.RESTAdapter.reopen
+Fido.ApplicationAdapter = DS.RESTAdapter.extend
   namespace: "api/v1"
+
+Fido.ApplicationSerializer = DS.ActiveModelSerializer.extend()
