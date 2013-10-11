@@ -19,6 +19,11 @@ Fido.PostsPostController = Ember.ObjectController.extend
 Fido.CommentsNewController = Ember.ObjectController.extend
   content: null # comment object
 
+  needs: ['postsPost']
+
   actions:
     save: ->
-      this.get('content').save()
+      this.get('content').save().then () =>
+        post = @get('controllers.postsPost.content')
+        newComment = @get('store').createRecord('comment', {post: post})
+        @set('controllers.postsPost.newComment', newComment)
