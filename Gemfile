@@ -49,3 +49,11 @@ end
 
 gem 'ember-rails'
 gem 'ember-source'
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'pry-stack_explorer'
+end
+
+gem 'thin'

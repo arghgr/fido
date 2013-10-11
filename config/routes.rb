@@ -1,5 +1,16 @@
 Fido::Application.routes.draw do
   get "static/index"
+
+  root :to => 'static#index'
+
+  namespace :api do
+    namespace :v1 do
+      resources :posts
+      resources :users
+      resources :sessions, only: [:create, :destroy]
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,15 +65,5 @@ Fido::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  root :to => 'static#index'
-
-  namespace :api do
-    namespace :v1 do
-      resources :posts
-      resources :users
-    end
-  end
-
 
 end
