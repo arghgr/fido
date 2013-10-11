@@ -1,5 +1,4 @@
 class Api::V1::SessionsController < ApplicationController
-  before_action :logout
 
   def create
     if current_user && (params[:session][:user_id].to_i == current_user.id)
@@ -16,13 +15,12 @@ class Api::V1::SessionsController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
     render json: {}, status: :accepted
   end
 
 private
-  def logout
-    session[:user_id] = nil
-  end
+
   # def session_params
   #   params.require(:session).permit(:name, :password, :user) # only allow these for now
   # end
