@@ -1,8 +1,9 @@
-{{#unless isLoggedIn}}
+{{#if isLoggedIn}}
+	<button {{action logout}}>logout</button>
+{{else}}
   <form>
     {{input value=name placeholder="Name"}}
     {{input value=password placeholder="Password"}}
-
-    <button {{action login target='view'}}>Login</button>
+    <button {{action login target='view'}}>login</button>
   </form>
-{{/unless}}
+{{/if}}
