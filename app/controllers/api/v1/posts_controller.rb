@@ -9,7 +9,13 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def create
-    render json: Post.create(post_params)
+    post = Post.new(post_params)
+    post.user_id = current_user.id
+    if post.save
+      render json: post
+    else
+      render json: { error: true }
+    end
   end
 
   def update
@@ -22,6 +28,6 @@ class Api::V1::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :intro, :extended, :published_at, :author) # only allow these for now
+    params.require(:post).permit(:title, :intro, :extended, :published_at) # only allow these for now
   end
 end

@@ -2,7 +2,7 @@
 
 Fido.Post = DS.Model.extend
   title: DS.attr("string")
-  author: DS.attr("string")
+  user: DS.belongsTo('user')
   intro: DS.attr("string")
   extended: DS.attr("string")
   publishedAt: DS.attr("date")
