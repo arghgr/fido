@@ -8,3 +8,9 @@ Fido.PostsNewRoute = Ember.Route.extend
       publishedAt: new Date()
       author: "current user"
     })
+
+Fido.PostsPostRoute = Ember.Route.extend
+
+  setupController: (controller, model) ->
+    controller.set('content', model)
+    controller.set('newComment', @store.createRecord('comment', {post: model}))

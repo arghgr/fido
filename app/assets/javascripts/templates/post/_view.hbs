@@ -7,3 +7,19 @@
 <div class="below-the-fold">
   {{markdown extended}}
 </div>
+
+<h3>Comments for post with title: {{title}}</h3>
+<p>This post has {{numComments}} comments</p>
+<div>
+  <ol>
+    {{#each comments}}
+      {{#unless isNew}}
+      <li>
+        {{text}} says {{user.name}}
+      </li>
+      {{/unless}}
+    {{/each}}
+  </ol>
+
+  {{render 'comments/new' newComment}}
+</div>

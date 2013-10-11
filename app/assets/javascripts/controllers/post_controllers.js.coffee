@@ -1,5 +1,6 @@
 Fido.PostsPostController = Ember.ObjectController.extend
   isEditing: false
+
   actions:
     edit: ->
       @set "isEditing", true
@@ -14,3 +15,10 @@ Fido.PostsPostController = Ember.ObjectController.extend
       post = @get("content")
       post.save().then =>
         @set "isEditing", false
+
+Fido.CommentsNewController = Ember.ObjectController.extend
+  content: null # comment object
+
+  actions:
+    save: ->
+      this.get('content').save()
