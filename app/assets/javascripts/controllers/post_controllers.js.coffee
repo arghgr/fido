@@ -1,6 +1,14 @@
 Fido.PostsPostController = Ember.ObjectController.extend
   isEditing: false
+  newCommentText: null
+
   actions:
+    createComment: (text) ->
+      post = this.get('content')
+      comment = @store.createRecord('comment', {post: post, text: text})
+      comment.save().then =>
+        @set('newCommentText', null)
+
     edit: ->
       @set "isEditing", true
 
