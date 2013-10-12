@@ -21,5 +21,6 @@
     {{/each}}
   </ol>
 
-  {{render 'comments/new' newComment}}
+  <h4>New Comment</h4>
+  {{comment-box submit='createComment' someText=newCommentText}}
 </div>
