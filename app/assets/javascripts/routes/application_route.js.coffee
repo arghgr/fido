@@ -1,13 +1,16 @@
 Fido.ApplicationRoute = Ember.Route.extend
 
-  setupController: (controller, model) ->
+  beforeModel: ->
     if Fido.get('session')
+
       @get('store').find('user', Fido.get('session')).then (user) =>
         session = @store.createRecord('session', {user: user})
         session.save().then (session) =>
+          controller = @controllerFor('application')
           controller.set('session', session)
           controller.set('currentUser', session.get('user'))
     else
+      controller = @controllerFor('application')
       controller.set('session', @store.createRecord('session'))
 
   actions:
